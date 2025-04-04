@@ -79,7 +79,12 @@ class student {
         $reponse=$this->cnxPDO->query($requete);
     }
 
-    
+    public function addStudent()
+    {
+        $requete ="INSERT INTO students(id,name,birthday,section) VALUES (:id,:name,:birthday,:section) ";
+        $reponse=$this->cnxPDO->prepare($requete);
+        $reponse->execute(array('id'=>$this->id,'name'=>$this->name,'birthday'=>$this->birthday,'section'=>$this->section));
+    }
 
 
   
