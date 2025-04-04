@@ -50,4 +50,22 @@ class section {
         $this->designation = $designation;
     }
 
+    public function createTable()
+    {
+        $requete="CREATE TABLE section (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            designation varchar(5),
+            description varchar(50)
+            )";
+        $reponse=$this->cnxPDO->query($requete);
+
+    }
+
+    public function addSection()
+    {
+        $requete ="INSERT INTO section(designation,description) VALUES (:designation,:description) ";
+        $reponse=$this->cnxPDO->prepare($requete);
+        $reponse->execute(array('designation'=>$this->designation,'description'=>$this->description));
+    }
+
 }
