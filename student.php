@@ -102,6 +102,15 @@ class student {
         '<br>section : ' . $student[0]->section;
     }
 
+    public function showDetailsV2($id){
+        $query ="select * from students where id = :id";
+        $reponse=$this->cnxPDO->prepare($query);
+        $reponse->execute(array('id'=>$id));
+        $student=$reponse->fetchAll(PDO::FETCH_OBJ);
+        echo 'nom : ' .$student[0]->name . '<br>birthday : ' . $student[0]->birthday .
+        '<br>section : ' . $student[0]->section ;
+    }
+
 
   
 
