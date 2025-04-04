@@ -6,17 +6,19 @@ class student {
     private $birthday;
     private $cnxPDO;
     private $section;
+    private $imgpath;
    
   
 
   
-    public function __construct( $id=null,$name=null, $birthday=null,$section=null)
+    public function __construct( $id=null,$name=null, $birthday=null,$section=null,$img=null)
     {
         $this->name = $name;
         $this->id = $id;
         $this->birthday = $birthday;
         $this->cnxPDO=connexionPdo::getInstance();
         $this->section=$section;
+        $this->imgpath=$img;
        
       
     }
@@ -74,16 +76,17 @@ class student {
             id INT PRIMARY KEY,
             name varchar(50),
             birthday Date,
-            section varchar(5)
+            section varchar(5),
+            imgpath varchar(100)
             )";
         $reponse=$this->cnxPDO->query($requete);
     }
 
     public function addStudent()
     {
-        $requete ="INSERT INTO students(id,name,birthday,section) VALUES (:id,:name,:birthday,:section) ";
+        $requete ="INSERT INTO students(id,name,birthday,section,imgpath) VALUES (:id,:name,:birthday,:section,:imgpath) ";
         $reponse=$this->cnxPDO->prepare($requete);
-        $reponse->execute(array('id'=>$this->id,'name'=>$this->name,'birthday'=>$this->birthday,'section'=>$this->section));
+        $reponse->execute(array('id'=>$this->id,'name'=>$this->name,'birthday'=>$this->birthday,'section'=>$this->section,'imgpath'=>$this->imgpath));
     }
 
     public function showList() {
