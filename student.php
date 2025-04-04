@@ -6,7 +6,7 @@ class student {
     private $birthday;
     private $cnxPDO;
     private $section;
-    private $imgpath;
+   
   
 
   
@@ -84,6 +84,14 @@ class student {
         $requete ="INSERT INTO students(id,name,birthday,section) VALUES (:id,:name,:birthday,:section) ";
         $reponse=$this->cnxPDO->prepare($requete);
         $reponse->execute(array('id'=>$this->id,'name'=>$this->name,'birthday'=>$this->birthday,'section'=>$this->section));
+    }
+
+    public function showList() {
+        $query="select * from students ";
+        $reponse=$this->cnxPDO->prepare($query);
+        $reponse->execute();
+        $personnes=$reponse->fetchAll(PDO::FETCH_OBJ);
+        return $personnes;
     }
 
 
