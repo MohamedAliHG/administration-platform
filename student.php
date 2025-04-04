@@ -67,4 +67,21 @@ class student {
         $this->section = $section;
     }
 
+
+    public function createTable()
+    {
+        $requete="CREATE TABLE students (
+            id INT PRIMARY KEY,
+            name varchar(50),
+            birthday Date,
+            section varchar(5)
+            )";
+        $reponse=$this->cnxPDO->query($requete);
+    }
+
+    
+
+
+  
+
 }
