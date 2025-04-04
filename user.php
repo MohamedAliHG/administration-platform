@@ -75,7 +75,25 @@ public function __construct($id=null, $username=null, $email=null, $role=null,$p
         $this->role = $role;
     }
 
-  
+    public function createTable()
+    {
+        $requete="CREATE TABLE users (
+            id INT PRIMARY KEY,
+            username varchar(50),
+            email varchar(50),
+            role varchar(50),
+            pwd varchar(12)
+            )";
+        $reponse=$this->cnxPDO->query($requete);
+
+    }
+
+    public function addUser()
+    {
+        $requete ="INSERT INTO users(id,username,email,role,pwd) VALUES (:id,:username,:email,:role,:pwd) ";
+        $reponse=$this->cnxPDO->prepare($requete);
+        $reponse->execute(array('id'=>$this->id,'username'=>$this->username,'email'=>$this->email,'role'=>$this->role,'pwd'=>$this->password));
+    }
 
     
 
