@@ -28,10 +28,10 @@ if($count)
             'role'=> 'user'
         );
     }
-    header('Location: lHome.php');
+    header('Location: platform.php');
     
 }
 else{
     $_SESSION['errorMessage']='identifiant ou mot de passe incorect';
-    header('Location: seConnecter.php');
+    header('Location: seconnecter.php');
 }
