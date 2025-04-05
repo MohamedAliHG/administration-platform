@@ -89,6 +89,19 @@ class student {
         $reponse->execute(array('id'=>$this->id,'name'=>$this->name,'birthday'=>$this->birthday,'section'=>$this->section,'imgpath'=>$this->imgpath));
     }
 
+    public function deleteStudent ($id){
+        $requete ="DELETE FROM students where id= :id ";
+        $reponse=$this->cnxPDO->prepare($requete);
+        $reponse->execute(array('id'=>$id));
+    }
+
+    public function modifyStudent($id,$newid,$name,$birthday,$imgpath){
+        $query="update students 
+        set name= :name, birthday= :birthday ,imgpath= :imgpath ,id= :newid where id=:id";
+        $reponse=$this->cnxPDO->prepare($query);
+        $reponse->execute(array('name'=>$name,'birthday'=>$birthday,'imgpath'=>$imgpath,'newid'=>$newid,'id'=>$id));
+    }
+
     public function showList() {
         $query="select * from students ";
         $reponse=$this->cnxPDO->prepare($query);
