@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require 'autoload.php';
 
 
@@ -16,16 +16,22 @@ if($count)
 {
     if ($reponse[0]->role=='admin')
     {
-        header('Location: platform.php');
+        $_SESSION['user']=array(
+            'role'=> 'admin'
+        );
 
         
     }
-    else{
-        echo 'permission denied';
+    elseif ($reponse[0]->role=='user') {
+
+        $_SESSION['user']=array(
+            'role'=> 'user'
+        );
     }
-    
+    header('Location: lHome.php');
     
 }
 else{
-    echo 'user unfound';
+    $_SESSION['errorMessage']='identifiant ou mot de passe incorect';
+    header('Location: seConnecter.php');
 }
