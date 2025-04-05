@@ -6,7 +6,7 @@ require 'autoload.php';
 
 $section=new section();
 $sections=$section->showList();
-
+session_start();
 
 ?>
 
@@ -34,6 +34,9 @@ $sections=$section->showList();
             <th>id</th>
             <th>designation</th>
             <th>description</th>
+            <?php if($_SESSION['user']['role']=='admin'){ ?>
+            <th>Action</th>
+            <?php } ?>
           
            
     
@@ -52,7 +55,11 @@ $sections=$section->showList();
          <tr>
             <td><?= $section->id?></td>
             <td><?= $section->designation?></td>
-            <td><?= $section->description?></td>          
+            <td><?= $section->description?></td>
+            <?php if($_SESSION['user']['role']=='admin'){ ?><td> 
+            <a href="delete-section.php?id=<?= $section->id; ?>"><i class="fa-solid fa-eraser"></i></a>
+            <a href="new-section-credentials.php?id=<?= $section->id; ?>"><i class="fa-solid fa-pen-to-square"></i></a> </td> 
+            <?php } ?>          
         </tr>
        <?php } ?>
          </tbody>
