@@ -37,6 +37,7 @@ session_start();
             <th>description</th>
             <?php if($_SESSION['user']['role']=='admin'){ ?>
             <th>Action</th>
+            <th>Liste Etudiant</th>
             <?php } ?>
           
            
@@ -60,6 +61,7 @@ session_start();
             <?php if($_SESSION['user']['role']=='admin'){ ?><td> 
             <a href="delete-section.php?id=<?= $section->id; ?>"><i class="fa-solid fa-eraser"></i></a>
             <a href="new-section-credentials.php?id=<?= $section->id; ?>"><i class="fa-solid fa-pen-to-square"></i></a> </td> 
+            <td> <a href="liste.php?designation=<?= $section->designation; ?>"><i class="fa-solid fa-list"></i></a></td>
             <?php } ?>          
         </tr>
        <?php } ?>
