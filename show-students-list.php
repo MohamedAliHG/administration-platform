@@ -8,6 +8,7 @@ $student=new student();
 $students=$student->showList();
 
 
+session_start();
 
 
 ?>
@@ -32,7 +33,9 @@ $students=$student->showList();
             <th>id</th>
             <th>name</th>
             <th>birthday</th>  
-            <th></th>      
+            <th>Section</th>  
+            <th></th> 
+               
     
         </tr>
         </thead>
@@ -50,8 +53,11 @@ $students=$student->showList();
             <td><?= $student->id?></td>
             <td><?= $student->name?></td>
             <td><?= $student->birthday?></td> 
+            <td><?= $student->section?></td>
             <td><a href="show-student-details.php?id=<?= $student->id; ?>"><i class="fa-solid fa-circle-info "></i></a>           
-            
+            <?php if($_SESSION['user']['role']=='admin'){ ?>
+            <a href="deletestudent.php?id=<?= $student->id; ?>"><i class="fa-solid fa-eraser"></i></a>
+            <a href="modification.php?id=<?= $student->id; ?>"><i class="fa-solid fa-pen-to-square"></i></a> <?php }?>   </td> 
         </tr>
        <?php } ?>
          </tbody>
