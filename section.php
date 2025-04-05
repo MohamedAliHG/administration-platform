@@ -68,4 +68,17 @@ class section {
         $reponse->execute(array('id'=>$this->id,'designation'=>$this->designation,'description'=>$this->description));
     }
 
+    public function deleteSection ($id){
+        $requete ="DELETE FROM section where id= :id ";
+        $reponse=$this->cnxPDO->prepare($requete);
+        $reponse->execute(array('id'=>$id));
+    }
+
+    public function modifySection($id,$designation,$description){
+        $query="update section 
+        set designation=:designation,description=:description,where id=:id";
+        $reponse=$this->cnxPDO->prepare($query);
+        $reponse->execute(array('designation'=>$designation,'description'=>$description,'id'=>$id));
+    }
+
 }
