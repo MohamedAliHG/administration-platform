@@ -94,6 +94,13 @@ public function __construct($id=null, $username=null, $email=null, $role=null,$p
         $reponse=$this->cnxPDO->prepare($requete);
         $reponse->execute(array('id'=>$this->id,'username'=>$this->username,'email'=>$this->email,'role'=>$this->role,'pwd'=>$this->password));
     }
+    public function login($id,$pwd)
+    {
+        $query="select role from users where id = :id and pwd = :pwd";
+        $reponse=$this->cnxPDO->prepare($query);
+        $reponse->execute(array('id'=>$id,'pwd'=>$pwd));
+        return $reponse->fetchAll(PDO::FETCH_OBJ);
+    }
 
     
 
