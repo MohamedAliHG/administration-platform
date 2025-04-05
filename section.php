@@ -76,7 +76,7 @@ class section {
 
     public function modifySection($id,$designation,$description){
         $query="update section 
-        set designation=:designation,description=:description,where id=:id";
+        set designation=:designation,description=:description where id=:id";
         $reponse=$this->cnxPDO->prepare($query);
         $reponse->execute(array('designation'=>$designation,'description'=>$description,'id'=>$id));
     }
