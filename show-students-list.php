@@ -56,7 +56,7 @@ session_start();
             <td><?= $student->section?></td>
             <td><a href="show-student-details.php?id=<?= $student->id; ?>"><i class="fa-solid fa-circle-info "></i></a>           
             <?php if($_SESSION['user']['role']=='admin'){ ?>
-            <a href="deletestudent.php?id=<?= $student->id; ?>"><i class="fa-solid fa-eraser"></i></a>
+            <a href="delete-student.php?id=<?= $student->id; ?>"><i class="fa-solid fa-eraser"></i></a>
             <a href="modification.php?id=<?= $student->id; ?>"><i class="fa-solid fa-pen-to-square"></i></a> <?php }?>   </td> 
         </tr>
        <?php } ?>
