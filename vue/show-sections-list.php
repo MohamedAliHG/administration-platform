@@ -16,12 +16,12 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des sections</title>
-    <?php include '../librairies.php' ?>
+    <?php include '../public/librairies.php' ?>
     
 </head>
 <body>
 <header>
-<?php include '../navbar.php'  ; ?>
+<?php include 'navbar.php'  ; ?>
     </header>
     <main>
         <br>
