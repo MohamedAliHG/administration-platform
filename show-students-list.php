@@ -38,8 +38,9 @@ session_start();
             </span>
             
     </form>
+    <?php if($_SESSION['user']['role']=='admin'){ ?>
     <span><a href="add-student-form.html"><i class="fa-solid fa-user-plus"></i></a></span>
-    
+    <?php } ?><br>
     <table id="myTable" class="display">
         <thead>
         <tr>
