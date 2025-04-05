@@ -81,4 +81,13 @@ class section {
         $reponse->execute(array('designation'=>$designation,'description'=>$description,'id'=>$id));
     }
 
+    public function showList() {
+        $query="select * from section ";
+        $reponse=$this->cnxPDO->prepare($query);
+        $reponse->execute();
+        $sections=$reponse->fetchAll(PDO::FETCH_OBJ);
+       
+        return $sections;
+    }
+
 }
