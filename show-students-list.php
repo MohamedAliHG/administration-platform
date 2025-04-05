@@ -50,7 +50,7 @@ session_start();
             <th>birthday</th>  
             <th>Section</th>  
              
-            <th></th> 
+            <th>Actions</th> 
                
     
         </tr>
