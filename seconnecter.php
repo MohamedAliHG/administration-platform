@@ -1,4 +1,13 @@
-<?php ?>
+<?php 
+session_start();
+
+if (isset($_SESSION['user']))
+{
+    header('Location: platform.php');
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +18,16 @@
 </head>
 <body>
 <div class="container">
-
+<?php  
+if(isset($_SESSION['errorMessage']))
+{
+?>
+<div style="align-items: center";>
+<?php echo $_SESSION['errorMessage'];
+unset($_SESSION['errorMessage']);
+?>
 </div>
-    
+<?php } ?> <br>
     <form action="login-verification.php" method="get">
     
             <div class="row">
