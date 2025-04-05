@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-    <?php include 'navbar.php'  ; ?>
+    <?php include '../assets/navbar.php'  ; ?>
     </header>
     <main>
         <h1>Welcom to the administration Platform</h1>
