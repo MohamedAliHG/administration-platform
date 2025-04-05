@@ -14,7 +14,7 @@ if (isset($_SESSION['user']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>se connecter</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
@@ -28,7 +28,7 @@ unset($_SESSION['errorMessage']);
 ?>
 </div>
 <?php } ?> <br>
-    <form action="login-verification.php" method="get">
+    <form action="../login-verification.php" method="get">
     
             <div class="row">
                 <div class="col-md-6"> 

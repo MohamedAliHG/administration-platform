@@ -6,4 +6,4 @@ if (isset($_SESSION['user']))
 {
     unset($_SESSION['user']);
 }
-header('Location: seconnecter.php');
+header('Location: ../vue/seconnecter.php');

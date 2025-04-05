@@ -1,6 +1,6 @@
 <?php
 
-require 'autoload.php';
+require '../autoload.php';
 
 $id=$_POST['id'];
 $name=$_POST['name'];
@@ -22,4 +22,4 @@ else{
 $student_1=new student($id,$name,$birthday,$section,$imgpath);
 $student_1->addStudent();
 
-header('Location: show-students-list.php');
+header('Location: ../vue/show-sections-list.php');

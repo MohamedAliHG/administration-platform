@@ -2,7 +2,7 @@
 
 <?php
 
-require 'autoload.php';
+require '../autoload.php';
 
 $section=new section();
 $sections=$section->showList();
@@ -16,18 +16,18 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des sections</title>
-    <?php include 'librairies.php' ?>
+    <?php include '../librairies.php' ?>
     
 </head>
 <body>
 <header>
-<?php include 'navbar.php'  ; ?>
+<?php include '../navbar.php'  ; ?>
     </header>
     <main>
         <br>
     <div class="container">
     <?php if($_SESSION['user']['role']=='admin'){ ?>
-    <div ><span><b>Ajouter une section</b></span><span><a href="add-section-form.html"><i class="fa-solid fa-plus"></i></a></span></div><br>
+    <div ><span><b>Ajouter une section</b></span><span><a href="../controller/add-section-form.html"><i class="fa-solid fa-plus"></i></a></span></div><br>
     <?php } ?>
     <table id="myTable" class="display">
         <thead>
@@ -59,7 +59,7 @@ session_start();
             <td><?= $section->designation?></td>
             <td><?= $section->description?></td>
             <?php if($_SESSION['user']['role']=='admin'){ ?><td> 
-            <a href="delete-section.php?id=<?= $section->id; ?>"><i class="fa-solid fa-eraser"></i></a>
+            <a href="../controller/delete-section.php?id=<?= $section->id; ?>"><i class="fa-solid fa-eraser"></i></a>
             <a href="new-section-credentials.php?id=<?= $section->id; ?>"><i class="fa-solid fa-pen-to-square"></i></a> </td> 
             <td> <a href="liste.php?designation=<?= $section->designation; ?>"><i class="fa-solid fa-list"></i></a></td>
             <?php } ?>          

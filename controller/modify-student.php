@@ -1,6 +1,6 @@
 <?php 
 
-require 'autoload.php';
+require '../autoload.php';
 
 $id=$_POST['id'];
 $newid=$_POST['newid'];
@@ -19,4 +19,4 @@ else{
 
 $modification=new student();
 $modification->modifyStudent($id,$newid,$name,$birthday,$imgpath);
-header('Location: show-students-list.php');
+header('Location: ../vue/show-students-list.php');

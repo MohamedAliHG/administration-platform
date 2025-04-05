@@ -1,3 +1,3 @@
 <?php
 
-header('Location: seconnecter.php');
+header('Location: vue/seconnecter.php');

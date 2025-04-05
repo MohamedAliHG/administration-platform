@@ -18,7 +18,7 @@ echo '
                 <a class="nav-link" href="show-sections-list.php">Liste des sections</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="deconnexion.php">Logeout</a>
+                <a class="nav-link " href="../controller/deconnexion.php">Logeout</a>
               </li>
             </ul>
           </div>

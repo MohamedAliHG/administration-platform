@@ -6,12 +6,12 @@ function load($classe)
     if(file_exists($pathClass)){
         require $pathClass;
     }else{
-        $pathClass='model/'. $classe . '.php';
+        $pathClass='../model/'. $classe . '.php';
         if(file_exists($pathClass)){
             require $pathClass;
         }
         else{
-            $pathClass='controller/'. $classe . '.php';
+            $pathClass='../controller/'. $classe . '.php';
             if(file_exists($pathClass)){
                 require $pathClass;}
         }

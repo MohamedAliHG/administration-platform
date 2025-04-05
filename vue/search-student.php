@@ -1,17 +1,15 @@
+<?php 
+require '../autoload.php';
 
-
-<?php
-
-require 'autoload.php';
+$name=$_GET['nom'];
 
 $student=new student();
-$students=$student->showList();
-
-
+$students=$student->findbyname($name);
 session_start();
-
-
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,16 +17,18 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste Etudiant</title>
-    <?php include 'librairies.php' ?>
+   <?php include '../librairies.php' ?>
+
+
 </head>
 <body>
 <header>
-<?php include 'navbar.php'  ; ?>
-</header>
-<main>
+<?php include '../navbar.php'  ; ?>
+    </header>
+    <main>
   <br>
     <div class="container">
-        
+
     <form action="search-student.php" method='get'>
             <span>
                 <input type="text" name="nom" placeholder="nom">
@@ -39,19 +39,16 @@ session_start();
             
     </form>
     <?php if($_SESSION['user']['role']=='admin'){ ?>
-    <span><a href="add-student-form.html"><i class="fa-solid fa-user-plus"></i></a></span>
+    <span><a href="../controller/add-student-form.html"><i class="fa-solid fa-user-plus"></i></a></span>
     <?php } ?><br>
     <table id="myTable" class="display">
         <thead>
         <tr>
             <th>id</th>
-            <th>Images</th> 
+            <th>image</th>
             <th>name</th>
-            <th>birthday</th>  
-            <th>Section</th>  
-             
+            <th>birthday</th>
             <th>Actions</th> 
-               
     
         </tr>
         </thead>
@@ -69,15 +66,14 @@ session_start();
             <td><?= $student->id?></td>
             <td><img src=<?= $student->imgpath ?> style="width: 50px; height: 50px;"></td> 
             <td><?= $student->name?></td>
-            <td><?= $student->birthday?></td> 
-            <td><?= $student->section?></td>
-            
-            <td><a href="show-student-details.php?id=<?= $student->id; ?>"><i class="fa-solid fa-circle-info "></i></a>           
+            <td><?= $student->birthday?></td>
+            <td><a href="../controller/show-student-details.php?id=<?= $student->id; ?>"><i class="fa-solid fa-circle-info "></i></a>           
             <?php if($_SESSION['user']['role']=='admin'){ ?>
-            <a href="delete-student.php?id=<?= $student->id; ?>"><i class="fa-solid fa-eraser"></i></a>
+            <a href="../controller/delete-student.php?id=<?= $student->id; ?>"><i class="fa-solid fa-eraser"></i></a>
             <a href="new-student-credentials.php?id=<?= $student->id; ?>"><i class="fa-solid fa-pen-to-square"></i></a> <?php }?>   </td> 
         </tr>
        <?php } ?>
+    
          </tbody>
        </table>
 
@@ -107,6 +103,7 @@ session_start();
       });
           });
 </script>
+
          </main>
 </body>
 </html> 
