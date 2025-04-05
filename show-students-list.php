@@ -28,7 +28,18 @@ session_start();
 <main>
   <br>
     <div class="container">
-
+        
+    <form action="search-student.php" method='get'>
+            <span>
+                <input type="text" name="nom" placeholder="nom">
+            </span>
+            <span>  
+                <input type="submit" value="envoyer">
+            </span>
+            
+    </form>
+    <span><a href="add-student-form.html"><i class="fa-solid fa-user-plus"></i></a></span>
+    
     <table id="myTable" class="display">
         <thead>
         <tr>
