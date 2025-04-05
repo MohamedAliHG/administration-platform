@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require 'autoload.php';
+require '../autoload.php';
 
 
 
@@ -28,10 +28,10 @@ if($count)
             'role'=> 'user'
         );
     }
-    header('Location: vue/platform.php');
+    header('Location: ../vue/platform.php');
     
 }
 else{
     $_SESSION['errorMessage']='identifiant ou mot de passe incorect';
-    header('Location: vue/seconnecter.php');
+    header('Location: ../vue/seconnecter.php');
 }

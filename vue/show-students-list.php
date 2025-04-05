@@ -39,7 +39,7 @@ session_start();
             
     </form>
     <?php if($_SESSION['user']['role']=='admin'){ ?>
-    <span><a href="../controller/add-student-form.html"><i class="fa-solid fa-user-plus"></i></a></span>
+    <span><a href="add-student-form.html"><i class="fa-solid fa-user-plus"></i></a></span>
     <?php } ?><br>
     <table id="myTable" class="display">
         <thead>
@@ -67,7 +67,7 @@ session_start();
 
          <tr>
             <td><?= $student->id?></td>
-            <td><img src=<?= $student->imgpath ?> style="width: 50px; height: 50px;"></td> 
+            <td><img src= <?=$student->imgpath ?> style="width: 50px; height: 50px;"></td> 
             <td><?= $student->name?></td>
             <td><?= $student->birthday?></td> 
             <td><?= $student->section?></td>

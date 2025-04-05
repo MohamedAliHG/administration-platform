@@ -6,10 +6,10 @@ $id=$_POST['id'];
 $newid=$_POST['newid'];
 $name=$_POST['name'];
 $birthday=$_POST['date'];
-$path=__DIR__.'\\'.$_FILES['fichier']['name'];
+$path=__DIR__.'\uploads\\'.$_FILES['fichier']['name'];
 
 if(move_uploaded_file($_FILES['fichier']['tmp_name'],$path)){
-        $imgpath=$_FILES['fichier']['name'];    
+    $imgpath='http://localhost/admin-platform/administration-platform/controller/uploads/'.$_FILES['fichier']['name']; 
    
     }    
 else{

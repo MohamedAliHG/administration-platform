@@ -28,7 +28,7 @@ unset($_SESSION['errorMessage']);
 ?>
 </div>
 <?php } ?> <br>
-    <form action="../login-verification.php" method="get">
+    <form action="../controller/login-verification.php" method="get">
     
             <div class="row">
                 <div class="col-md-6"> 
