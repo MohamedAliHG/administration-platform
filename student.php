@@ -109,6 +109,21 @@ class student {
         $personnes=$reponse->fetchAll(PDO::FETCH_OBJ);
         return $personnes;
     }
+    public function findbyname($name){
+        $query="select * from students where name=:name ";
+        $reponse=$this->cnxPDO->prepare($query);
+        $reponse->execute(array('name'=>$name));
+        return $reponse->fetchAll(PDO::FETCH_OBJ);
+
+    }
+
+    public function getListByDesignation($designation){
+        $query="select * from students where section=:designation";
+        $reponse=$this->cnxPDO->prepare($query);
+        $reponse->execute(array('designation'=>$designation));
+        return $reponse->fetchAll(PDO::FETCH_OBJ);
+    }
+
 
     public function showDetailsV1($id){
         $query ="select * from students where id = '$id'";
