@@ -16,8 +16,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des sections</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <?php include 'librairies.php' ?>
     
 </head>
 <body>
@@ -28,7 +27,7 @@ session_start();
         <br>
     <div class="container">
       
-    <table class="table table-striped">
+    <table id="myTable" class="display">
         <thead>
         <tr>
             <th>id</th>
@@ -64,7 +63,31 @@ session_start();
        <?php } ?>
          </tbody>
          </div>
-
+         <script>
+          $(document).ready(function() {
+          $('#myTable').DataTable({
+        dom: 'Bfrtip',  
+        buttons: [
+          {
+            extend: 'copy',  
+            text: 'Copy'
+          },
+          {
+            extend: 'csv',    
+            text: 'CSV'
+          },
+          {
+            extend: 'excel', 
+            text: 'Excel'
+          },
+          {
+            extend: 'pdf',    
+            text: 'PDF'
+          }
+        ]
+      });
+          });
+</script>
          </main>
 </body>
 </html> 
