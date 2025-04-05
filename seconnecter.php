@@ -12,7 +12,7 @@
 
 </div>
     
-    <form action="login.php" method="get">
+    <form action="login-verification.php" method="get">
     
             <div class="row">
                 <div class="col-md-6"> 
