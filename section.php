@@ -53,7 +53,7 @@ class section {
     public function createTable()
     {
         $requete="CREATE TABLE section (
-            id INT AUTO_INCREMENT PRIMARY KEY,
+            id INT PRIMARY KEY,
             designation varchar(5),
             description varchar(50)
             )";
@@ -63,9 +63,9 @@ class section {
 
     public function addSection()
     {
-        $requete ="INSERT INTO section(designation,description) VALUES (:designation,:description) ";
+        $requete ="INSERT INTO section(id,designation,description) VALUES (:id,:designation,:description) ";
         $reponse=$this->cnxPDO->prepare($requete);
-        $reponse->execute(array('designation'=>$this->designation,'description'=>$this->description));
+        $reponse->execute(array('id'=>$this->id,'designation'=>$this->designation,'description'=>$this->description));
     }
 
 }
