@@ -27,7 +27,7 @@ session_start();
         <br>
     <div class="container">
     <?php if($_SESSION['user']['role']=='admin'){ ?>
-    <div ><span><b>Ajouter une section</b></span><span><a href="../controller/add-section-form.html"><i class="fa-solid fa-plus"></i></a></span></div><br>
+    <div ><span><b>Ajouter une section</b></span><span><a href="add-section-form.html"><i class="fa-solid fa-plus"></i></a></span></div><br>
     <?php } ?>
     <table id="myTable" class="display">
         <thead>
