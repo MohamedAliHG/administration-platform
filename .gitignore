@@ -3,3 +3,4 @@ package-lock.json
 package.json
 createAndFillTable/
 controller/uploads/
+.idea/
