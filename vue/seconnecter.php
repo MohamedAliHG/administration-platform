@@ -1,8 +1,7 @@
-<?php 
+<?php
 session_start();
 
-if (isset($_SESSION['user']))
-{
+if (isset($_SESSION['user'])) {
     header('Location: platform.php');
 }
 ?>
@@ -18,35 +17,34 @@ if (isset($_SESSION['user']))
 </head>
 <body>
 <div class="container">
-<?php  
-if(isset($_SESSION['errorMessage']))
-{
-?>
-<div style="align-items: center";>
-<?php echo $_SESSION['errorMessage'];
-unset($_SESSION['errorMessage']);
-?>
-</div>
-<?php } ?> <br>
+    <?php
+    if (isset($_SESSION['errorMessage'])) {
+        ?>
+        <div style="align-items: center" ;>
+            <?php echo $_SESSION['errorMessage'];
+            unset($_SESSION['errorMessage']);
+            ?>
+        </div>
+    <?php } ?> <br>
     <form action="../controller/login-verification.php" method="get">
-    
-            <div class="row">
-                <div class="col-md-6"> 
+
+        <div class="row">
+            <div class="col-md-6">
                 <label>identifiant</label>
                 <input type="text" name="id">
-                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">  
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <br><label>Password</label>
                 <input type="password" name="pwd">
-                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">  
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <input type="submit" value="envoyer">
-                </div>
             </div>
+        </div>
     </form>
 </div>
 

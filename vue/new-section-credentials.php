@@ -1,5 +1,4 @@
-
-<?php $id=$_GET['id'] ; ?>
+<?php $id = $_GET['id']; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,30 +12,30 @@
     <form action="../controller/modify-section.php" method="post" enctype="multipart/form-data">
 
         <div class="row">
-            <div class="col-md-6"> 
-            <input type="text" name="id" value=<?= $id ?>  style="display: none;">
+            <div class="col-md-6">
+                <input type="text" name="id" value=<?= $id ?>  style="display: none;">
             </div>
         </div>
-      
-    
-            <div class="row">
-                <div class="col-md-6"> 
+
+
+        <div class="row">
+            <div class="col-md-6">
                 <label>designation</label>
                 <input type="text" name="designation">
-                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6"> 
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <label>description</label>
                 <input type="text" name="description">
-                </div>
             </div>
-          
-            <div class="row">
-                <div class="col-md-6">  
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
                 <input type="submit" value="envoyer">
-                </div>
             </div>
+        </div>
     </form>
 </div>
 </body>

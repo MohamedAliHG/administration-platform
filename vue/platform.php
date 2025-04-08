@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +7,11 @@
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-    <?php include '../assets/navbar.php'  ; ?>
-    </header>
-    <main>
-        <h1>Welcom to the administration Platform</h1>
-    </main>
+<header>
+    <?php include '../assets/navbar.php'; ?>
+</header>
+<main>
+    <h1>Welcom to the administration Platform</h1>
+</main>
 </body>
 </html>

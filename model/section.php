@@ -1,18 +1,19 @@
-<?php 
+<?php
 
-class section {
+class section
+{
     private $id;
     private $description;
     private $designation;
     private $cnxPDO;
 
 
-    public function __construct($id=null, $designation=null,$description=null)
+    public function __construct($id = null, $designation = null, $description = null)
     {
         $this->id = $id;
         $this->description = $description;
         $this->designation = $designation;
-        $this->cnxPDO=connexionPdo::getInstance();
+        $this->cnxPDO = connexionPdo::getInstance();
     }
 
 
@@ -38,13 +39,13 @@ class section {
         $this->description = $description;
     }
 
-  
+
     public function getDesignation()
     {
         return $this->designation;
     }
 
-  
+
     public function setDesignation($designation)
     {
         $this->designation = $designation;
@@ -52,41 +53,44 @@ class section {
 
     public function createTable()
     {
-        $requete="CREATE TABLE section (
+        $requete = "CREATE TABLE section (
             id INT PRIMARY KEY,
             designation varchar(5),
             description varchar(50)
             )";
-        $reponse=$this->cnxPDO->query($requete);
+        $reponse = $this->cnxPDO->query($requete);
 
     }
 
     public function addSection()
     {
-        $requete ="INSERT INTO section(id,designation,description) VALUES (:id,:designation,:description) ";
-        $reponse=$this->cnxPDO->prepare($requete);
-        $reponse->execute(array('id'=>$this->id,'designation'=>$this->designation,'description'=>$this->description));
+        $requete = "INSERT INTO section(id,designation,description) VALUES (:id,:designation,:description) ";
+        $reponse = $this->cnxPDO->prepare($requete);
+        $reponse->execute(array('id' => $this->id, 'designation' => $this->designation, 'description' => $this->description));
     }
 
-    public function deleteSection ($id){
-        $requete ="DELETE FROM section where id= :id ";
-        $reponse=$this->cnxPDO->prepare($requete);
-        $reponse->execute(array('id'=>$id));
+    public function deleteSection($id)
+    {
+        $requete = "DELETE FROM section where id= :id ";
+        $reponse = $this->cnxPDO->prepare($requete);
+        $reponse->execute(array('id' => $id));
     }
 
-    public function modifySection($id,$designation,$description){
-        $query="update section 
+    public function modifySection($id, $designation, $description)
+    {
+        $query = "update section 
         set designation=:designation,description=:description where id=:id";
-        $reponse=$this->cnxPDO->prepare($query);
-        $reponse->execute(array('designation'=>$designation,'description'=>$description,'id'=>$id));
+        $reponse = $this->cnxPDO->prepare($query);
+        $reponse->execute(array('designation' => $designation, 'description' => $description, 'id' => $id));
     }
 
-    public function showList() {
-        $query="select * from section ";
-        $reponse=$this->cnxPDO->prepare($query);
+    public function showList()
+    {
+        $query = "select * from section ";
+        $reponse = $this->cnxPDO->prepare($query);
         $reponse->execute();
-        $sections=$reponse->fetchAll(PDO::FETCH_OBJ);
-       
+        $sections = $reponse->fetchAll(PDO::FETCH_OBJ);
+
         return $sections;
     }
 

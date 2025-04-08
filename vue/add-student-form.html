@@ -9,29 +9,29 @@
 <body>
 <div class="container">
     <form action="../controller/add-student.php" method="post" enctype="multipart/form-data">
-        
+
         <div class="row">
-            <div class="col-md-6"> 
-            <label>id</label>
-            <input type="text" name="id" >
+            <div class="col-md-6">
+                <label>id</label>
+                <input type="text" name="id">
             </div>
         </div>
-    
-            <div class="row">
-                <div class="col-md-6"> 
+
+        <div class="row">
+            <div class="col-md-6">
                 <label>name</label>
                 <input type="text" name="name">
-                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">  
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <br><label>birthday</label>
                 <input type="date" name="date">
-                </div>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-md-6"> 
+        <div class="row">
+            <div class="col-md-6">
                 <label>Section</label>
                 <select name="section">
                     <option value="GL">GL</option>
@@ -41,20 +41,20 @@
                     <option value="CH">CH</option>
                     <option value="BIO">BIO</option>
                 </select>
-                </div>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-md-6">  
+        <div class="row">
+            <div class="col-md-6">
                 <br><label>image</label>
                 <input type="file" name="fichier">
-                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">  
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <input type="submit" value="envoyer">
-                </div>
             </div>
+        </div>
     </form>
 </div>
 </body>
