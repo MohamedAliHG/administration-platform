@@ -1,16 +1,12 @@
 <?php
-
-abstract class repository{
+class repository {
 
     private $cnxPDO;
-    private $tableName;
- 
+    protected string $tableName;
 
-
-    public function __construct($name)
-    {
+    public function __construct(string $tableName) {
         $this->cnxPDO = connexionPdo::getInstance();
-        $this->tableName=$name;
+        $this->tableName = $tableName;
     }
 
     public function findAll()
@@ -18,8 +14,7 @@ abstract class repository{
         $query = "select * from :tableName ";
         $reponse = $this->cnxPDO->prepare($query);
         $reponse->execute(array('tableName'=>$this->tableName));
-        $personnes = $reponse->fetchAll(PDO::FETCH_OBJ);
-        return $personnes;
+        return $reponse->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function findById($id)
@@ -31,8 +26,6 @@ abstract class repository{
 
     }
 
-    abstract public function create();
-
     public function delete($id)
     {
         $requete = "DELETE FROM :tableName where id= :id ";
@@ -40,5 +33,17 @@ abstract class repository{
         $reponse->execute(array('tableName'=>$this->tableName,'id' => $id));
     }
 
+    
+    public function create($data) {
+        $fields = array_keys($data);
+        $placeholders = array_map(fn($field) => ':' . $field, $fields);
+        $query = "INSERT INTO {$this->tableName} (" . implode(', ', $fields) . ")
+                VALUES (" . implode(', ', $placeholders) . ")";
+        $reponse = $this->cnxPDO->prepare($query);
+        return $reponse->execute($data);
+    }
+    
 
+   
 }
+?>
